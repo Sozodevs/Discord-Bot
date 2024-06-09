@@ -1,0 +1,90 @@
+
+
+  greeting = ["hello", "hey", "hola", "bonjour", "ciao", "namaste", "salaam", "konnichiwa", "ni hao", "howdy", "good day", "gday", "whats up", "sup", "yo", "yow", "wassup"]
+    for greet in greeting:
+        if greet in p_message:
+            response = random.choice(greeting)
+            return response
+        
+    if re.search(r'^hi+i+$', p_message.lower()):
+        response = random.choice(greeting)
+        return response
+        
+    # Add the help command response
+    if "!help" in p_message:
+        response = "Hey!🌸 am Shizuka i'm a hobbyist, but I've got all the deets on weather forecasts data, upcoming astronomy events, and also into monitoring some space satellite, such as the ISS!.. just ask \n"
+        for command, description in commands_dict.items():
+            response += f"{command} - {description}\n"
+        return response    
+    
+    if "!set" in p_message:
+        return "To set the channel, use the command: `!set channel_name`"
+
+    
+    if "time" in p_message:
+        philippine_tz = pytz.timezone("Asia/Manila")
+        current_time = datetime.now(philippine_tz).strftime("%I:%M %p")  # Use %I for 12-hour format and %p for am/pm
+        response = f"it's {current_time}"
+        return response
+    
+    
+    swet_ws = ["love u","love you","i love u","i love you","i like you","i like u","care for u","care for you"]
+    for swet_w in swet_ws: 
+        if swet_w in p_message:
+            c_response = ["is this a joke?","ehh?","I never thought I'd hear those words from you...","i-i didn't expect this...","i-i don't know what to say"]
+            response = random.choice(c_response)
+            return response
+        
+        
+    curse_ws = ["bitch","tits","boobs","bullshit","bull shit","son of a bitch","bastard","cunt","wanker","slag","slut","whore","tf","stfu","shut the fuck up","gtfo","get the fuck out","who cares","fucking","fuckyou","fuck you","fuck u","fucku","fuckingshit","fucking shit","shit","you piece of shit","you look shit","u look shit","holy fuck","dammit","damn it","cock","pussy","smoll dick","smol dick","dick","f u","fk u","u dumb","you dumb","dumb"]      
+    for curse_w in curse_ws:
+        if curse_w in p_message:
+            c_fhcresponse = ["Stop it","Shut up","No ,thank you","the fuck!"]
+            response = random.choice(c_fhcresponse)
+            return response           
+        
+        
+    compliments = ["ur cute","your cute","you're cute","i like your eyes","i like ur eyes","ur pretty","your pretty","you are beautiful","your beautiful","ur beautiful","i like ur smile","i like your smile"]      
+    for someone_coms in compliments:
+        if someone_coms in p_message:
+                c_response = ["thank you so much!","thanks for noticing!","it's so nice of you to say that","thank you for acknowledging"]
+                response = random.choice(c_response)
+                return response   
+            
+    compliments_deltas = ["thanks","thank you","thankyou","thanku","thank u","ty","tank u","i appreciate it"]      
+    for compliment_delta in compliments_deltas:
+        if compliment_delta in p_message:
+                c_response = ["wc!","welcome!","sure!","no problem","your welcome!"]
+                response = random.choice(c_response)
+                return response   
+        
+    m_greetings = ["gm","good morning","goodmorning","morning","Good morninggg! Rise and shine like the sun! ☀️🌞","rise and shine","good dawn","gmorning","g morning","good am","awesome morning","new morning","have a great morning!","good morning vibes"]
+    for m_greet in m_greetings:
+        if m_greet in p_message:
+            current_time = datetime.now(pytz.timezone('Asia/Manila'))
+            current_hour = current_time.hour
+            # Check if the current hour is morning (from 4 AM to 11:59 AM) before responding with "good morninggg!"
+            if current_hour >= 4 and current_hour <= 11:
+                response = random.choice(m_greetings)
+            else:
+                c_mresponse = ["it's not morning anymore!","its already evening!","its already night time! 🌙"]
+                response = random.choice(c_mresponse)
+            return response  
+        
+    night_greetings = ["gn","goodnight","good night","night","sweet dream","nighty night","night night","sleep well","see you in the morning","have a good night's sleep","have a peaceful night","sleep tight","until tomorrow"]
+    for n_greet in night_greetings:
+        if n_greet in p_message:
+            current_time = datetime.now(pytz.timezone('Asia/Manila'))
+            current_hour = current_time.hour
+
+                # Check if the current hour is evening (from 6 PM to 11:59 PM) or early morning (from 12 AM to 3 AM) before responding with "good night"
+            if (current_hour >= 18 and current_hour <= 23) or (current_hour >= 0 and current_hour <= 3):
+                n_emoji = [" 🌙", " 😴", " 💤", " 🌌", " 🌜", " 🌛", " !", " !!"]
+                response = random.choice(night_greetings) + random.choice(n_emoji)
+            else:
+                c_response = ["it's not yet evening!", "don't dream of stars just yet✨, it's still daytime!", "it's still daytime!", "not quite evening time yet!🌆"]
+                response = random.choice(c_response)
+            return response           
+
+
+
